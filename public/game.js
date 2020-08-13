@@ -32,6 +32,9 @@ function bankButtonClicked() {
 function ikePost() {
     let ikeStr = _ikeMined.toString();
     let request = new XMLHttpRequest();
+    let address = window.location.href == "http://localhost:3666/" ? "http://localhost:3666/" : 'https://manaia-2020-simulator.herokuapp.com/'
+
+    alert(address)
 
     request.onreadystatechange = () =>
     {
