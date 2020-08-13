@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const editData = require('./editData')
-const resetData = require('./resetData')
 
 let data = require("./data.json")
 
@@ -17,19 +16,16 @@ router.post('/bank', (req, res) => {
     let ikeMined = Object.keys(req.body)[0]
     let ikeNum = parseInt(ikeMined, 10);
 
-    console.log("IKE MINED:" + ikeNum)
+    console.log("IKE MINED: " + ikeNum)
 
     editData.increaseIKE(ikeNum, () => {
-        console.log(`${ikeNum} added to the bank`)
+        console.log(`${ikeNum} I.K.E ADDED TO THE BANK`)
         res.redirect('/')
     })
 })
 
 router.post('/reset', (req, res) => {
-
-    console.log('reset in server')
-
-    resetData(() => {
+    editData.reset(() => {
         console.log("RESET DATA")
         res.redirect('/')
     })
