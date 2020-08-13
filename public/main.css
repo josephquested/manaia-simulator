@@ -18,6 +18,15 @@ h3 {
 .student {
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-bottom: 20px;
+    width: 250px;
+    margin: 10px;
     background-color: rgb(122, 106, 106);
+    border: 1px solid black;
+}
+
+.students-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
