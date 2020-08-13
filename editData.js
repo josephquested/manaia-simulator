@@ -1,22 +1,27 @@
-const fs = require(fs)
+const fs = require('fs')
 let data = require('./data.json')
 
-const increaseIKE = (amount) => {
-    data.ikeTotal += amount
+const increaseIKE = (amount, cb) => {
+    let ikeTotal = parseInt(data.ikeTotal, 10);
+    ikeTotal += amount
+    data.ikeTotal = ikeTotal
     data.day++
-    writeData(data)
+    writeData(data, cb)
 }
 
-const decreaseIKE = (amount) => {
+const decreaseIKE = (amount, cb) => {
     data.ikeTotal -= amount
-    writeData(data)
+    writeData(data, cb)
 }
 
-const writeData = (data) => {
+const writeData = (data, cb) => {
     const str = JSON.stringify(data)
     fs.writeFile('./data.json', str, (err) => {
+
         if (err)
             throw (err)
+
+        cb();
     })
 }
 
