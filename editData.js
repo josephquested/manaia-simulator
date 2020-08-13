@@ -17,6 +17,11 @@ const decreaseIKE = (amount, cb) => {
     writeData(data, cb)
 }
 
+const increaseStat = (stat, id, cb) => {
+    data.students[id][stat] += 10
+    writeData(data, cb)
+}
+
 const reset = (cb) => {
     data.students.forEach((student, i) => {
         student.hunger = backup.students[i].hunger
@@ -48,4 +53,4 @@ const random = () => {
     return Math.floor(Math.random() * difficulty) 
 }
 
-module.exports = { increaseIKE, decreaseIKE, reset }
+module.exports = { increaseIKE, decreaseIKE, reset, increaseStat }
