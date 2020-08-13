@@ -9,14 +9,16 @@
     <button type="button" id="bankButton">BANK I.K.E (ADVANCE DAY)</button>
 </div>
 
-{{#each students}}
+<div class="students-grid">
+    {{#each students}}
 
-<div class="student">
-    <h2 class="name">{{name}}</h2>
-    <h3 class="hunger">hunger: {{hunger}}</h3>
-    <h3 class="thirst">thirst: {{thirst}}</h3>
-    <h3 class="fatigue">fatigue: {{fatigue}}</h3>
-    <h3 class="whelm">whelm: {{whelm}}</h3>
+    <div class="student">
+        <h2 class="name">{{name}}</h2>
+        <h3 class="hunger">hunger: {{hunger}}</h3>
+        <h3 class="thirst">thirst: {{thirst}}</h3>
+        <h3 class="fatigue">fatigue: {{fatigue}}</h3>
+        <h3 class="whelm">whelm: {{whelm}}</h3>
+    </div>
+
+    {{/each}}
 </div>
-
-{{/each}}
