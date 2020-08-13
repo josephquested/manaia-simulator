@@ -3,6 +3,8 @@
 const ikeButton = document.getElementById('ikeButton')
 const ikeMined = document.getElementById('ikeMined')
 
+const dayCounter = document.getElementById('dayCounter')
+
 function bindEventListeners () {
     ikeButton.addEventListener('click', ikeButtonClicked);
 }
@@ -17,3 +19,6 @@ function ikeButtonClicked () {
     _ikeMined++
     ikeMined.innerHTML = `I.K.E MINED: ${_ikeMined}`
 }
+
+// -- DAY COUNTER -- //
+
