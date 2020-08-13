@@ -30,6 +30,9 @@ function bankButtonClicked() {
 // -- POSTING -- //
 
 function ikePost() {
+
+    console.log("ike post")
+
     let ikeStr = _ikeMined.toString();
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://localhost:3666/bank", true);

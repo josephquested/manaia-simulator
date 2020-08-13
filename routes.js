@@ -9,15 +9,6 @@ router.get('/', (req, res) => {
     res.render('home', data)
 })
 
-
-router.get('/bank', (req, res) => {
-
-    console.log(req.body)
-
-    res.render('home', data)
-})
-
-
 // -- POST -- //
 
 router.post('/bank', (req, res) => {
