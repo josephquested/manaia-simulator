@@ -17,12 +17,8 @@ const decreaseIKE = (amount, cb) => {
 }
 
 const reset = (cb) => {
-    data.students.forEach(student => {
-        student.fatigue = backup.fatigue
-        student.hunger = backup.hunger
-        student.thirst = backup.thirst
-        student.fatigue = backup.fatigue
-        student.whelm = backup.whelm
+    data.students.forEach((student, i) => {
+        student = backup.students[i]
     })
 
     data.ikeTotal = backup.ikeTotal
