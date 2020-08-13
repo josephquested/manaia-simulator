@@ -1,0 +1,23 @@
+body {
+    background-color: bisque;
+    font-family: Roboto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.student {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(122, 106, 106);
+}
