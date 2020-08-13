@@ -19,10 +19,26 @@ router.post('/bank', (req, res) => {
     console.log("IKE MINED: " + ikeNum)
 
     editData.increaseIKE(ikeNum, () => {
-        console.log(`${ikeNum} I.K.E ADDED TO THE BANK`)
+        console.log(`${ikeNum} IKE ADDED TO THE BANK`)
         res.redirect('/')
     })
 })
+
+router.post('/stat', (req, res) => {
+    let stat = req.query.stat
+    let id = req.query.id
+
+    console.log(`INCREASING ${stat} for ${id}`)
+
+    editData.decreaseIKE(10, () => {
+        console.log("SPENT 10 IKE")
+        editData.increaseStat(stat, id, (() => {
+            console.log(`SUCCESS ${stat} for ${id}`)
+            res.redirect('/')
+        }))
+    })
+})
+
 
 router.post('/reset', (req, res) => {
     editData.reset(() => {
