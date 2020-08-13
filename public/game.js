@@ -34,15 +34,13 @@ function ikePost() {
     let request = new XMLHttpRequest();
     let address = window.location.href == "http://localhost:3666/" ? "http://localhost:3666/" : 'https://manaia-2020-simulator.herokuapp.com/'
 
-    alert(address)
-
     request.onreadystatechange = () =>
     {
         if (request.readyState == 4 && request.status == 200)
             location.reload()
     }
 
-    request.open("POST", "http://localhost:3666/bank", true);
+    request.open("POST", `${address}bank`, true);
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     request.send(ikeStr);
 }
