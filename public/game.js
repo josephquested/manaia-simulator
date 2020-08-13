@@ -1,12 +1,13 @@
 // -- INIT -- //
 
 const ikeButton = document.getElementById('ikeButton')
-const ikeMined = document.getElementById('ikeMined')
+const bankButton = document.getElementById('bankButton')
 
 const dayCounter = document.getElementById('dayCounter')
 
 function bindEventListeners () {
     ikeButton.addEventListener('click', ikeButtonClicked);
+    bankButton.addEventListener('click', bankButtonClicked);
 }
 
 bindEventListeners();
@@ -20,5 +21,19 @@ function ikeButtonClicked () {
     ikeMined.innerHTML = `I.K.E MINED: ${_ikeMined}`
 }
 
-// -- DAY COUNTER -- //
+// -- BANK BUTTON -- //
 
+function bankButtonClicked() {
+    ikePost();
+}
+
+// -- POSTING -- //
+
+function ikePost() {
+    let ikeStr = _ikeMined.toString();
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://localhost:3666/bank", true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send(ikeStr);
+    return true
+}
