@@ -30,22 +30,16 @@ function bankButtonClicked() {
 // -- POSTING -- //
 
 function ikePost() {
-
-    console.log("ike post")
-
     let ikeStr = _ikeMined.toString();
-    var xhttp = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = () =>
+    request.onreadystatechange = () =>
     {
-        if (xhttp.readyState == 4 && xhttp.status == 200)
-        {
+        if (request.readyState == 4 && request.status == 200)
             location.reload()
-        }
     }
 
-    xhttp.open("POST", "http://localhost:3666/bank", true);
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send(ikeStr);
-    // return true
+    request.open("POST", "http://localhost:3666/bank", true);
+    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    request.send(ikeStr);
 }
