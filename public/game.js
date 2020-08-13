@@ -1,19 +1,19 @@
-// // -- INIT -- //
+// -- INIT -- //
 
+const ikeButton = document.getElementById('ikeButton')
+const ikeMined = document.getElementById('ikeMined')
 
-// const ikeButton = document.getElementById("ikeButton");
+function bindEventListeners () {
+    ikeButton.addEventListener('click', ikeButtonClicked);
+}
 
-// const bindEventListeners = () => {
-//     ikeButton.onclick(ikeButtonClicked)
-// }
+bindEventListeners();
 
-// window.onload = (event) => {
-//     bindEventListeners();
-//   };
+// -- IKE BUTTON -- //
 
-// // -- IKE BUTTON -- //
+let _ikeMined = 0
 
-
-// const ikeButtonClicked = () => {
-//     console.log('clicked')
-// }
+function ikeButtonClicked () {
+    _ikeMined++
+    ikeMined.innerHTML = `I.K.E MINED: ${_ikeMined}`
+}
