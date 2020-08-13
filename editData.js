@@ -1,4 +1,5 @@
 const fs = require('fs')
+const writeData = require('./writeData.js')
 let data = require('./data.json')
 
 const increaseIKE = (amount, cb) => {
@@ -12,17 +13,6 @@ const increaseIKE = (amount, cb) => {
 const decreaseIKE = (amount, cb) => {
     data.ikeTotal -= amount
     writeData(data, cb)
-}
-
-const writeData = (data, cb) => {
-    const str = JSON.stringify(data)
-    fs.writeFile('./data.json', str, (err) => {
-
-        if (err)
-            throw (err)
-
-        cb();
-    })
 }
 
 module.exports = { increaseIKE, decreaseIKE }
