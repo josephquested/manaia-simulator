@@ -1,19 +1,15 @@
-// // -- INIT -- //
+// -- INIT -- //
 
+const ikeButton = document.getElementById("ikeButton");
 
-// const ikeButton = document.getElementById("ikeButton");
+function bindEventListeners () {
+    ikeButton.addEventListener("click", ikeButtonClicked);
+}
 
-// const bindEventListeners = () => {
-//     ikeButton.onclick(ikeButtonClicked)
-// }
+bindEventListeners();
 
-// window.onload = (event) => {
-//     bindEventListeners();
-//   };
+// -- IKE BUTTON -- //
 
-// // -- IKE BUTTON -- //
-
-
-// const ikeButtonClicked = () => {
-//     console.log('clicked')
-// }
+function ikeButtonClicked () {
+    console.log('clicked')
+}
