@@ -35,8 +35,17 @@ function ikePost() {
 
     let ikeStr = _ikeMined.toString();
     var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = () =>
+    {
+        if (xhttp.readyState == 4 && xhttp.status == 200)
+        {
+            location.reload()
+        }
+    }
+
     xhttp.open("POST", "http://localhost:3666/bank", true);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send(ikeStr);
-    return true
+    // return true
 }
