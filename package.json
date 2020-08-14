@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch --noStackTrace",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -14,6 +14,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
+    "jest": "^26.4.0",
     "nodemon": "^2.0.4"
   }
 }

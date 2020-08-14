@@ -5,6 +5,8 @@ body {
 
 h1 {
     text-align: center;
+    font-size: 4vw;
+    margin-bottom: 0px;
 }
 
 h2 {
@@ -29,6 +31,19 @@ h3 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#dayContainer {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 1vw;
+}
+
+#ikeContainer {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 1vw;
+    margin-bottom: 50px;
 }
 
 .red {
