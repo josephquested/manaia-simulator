@@ -32,6 +32,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 let _ikeMined = 0
 
 function ikeButtonClicked () {
+    audio = new Audio(`./audio/hat${Math.floor(Math.random() * 5)}.wav`)
+    audio.play()
     _ikeMined++
     ikeMined.innerHTML = `I.K.E MINED: ${_ikeMined}`
 }
@@ -39,6 +41,8 @@ function ikeButtonClicked () {
 // -- BANK BUTTON -- //
 
 function bankButtonClicked() {
+    audio = new Audio(`./audio/cash.mp3`)
+    audio.play()
     ikePost()
 }
 
@@ -46,21 +50,29 @@ function bankButtonClicked() {
 
 function hungerButtonClicked(e) {
     let index = Object.values(hungerButtons).indexOf(e.target)
+    audio = new Audio(`./audio/bite.wav`)
+    audio.play()
     statPost('hunger', index)
 }
 
 function thirstButtonClicked(e) {
     let index = Object.values(thirstButtons).indexOf(e.target)
+    audio = new Audio(`./audio/glug.wav`)
+    audio.play()
     statPost('thirst', index)
 }
 
 function fatigueButtonClicked(e) {
     let index = Object.values(fatigueButtons).indexOf(e.target)
+    audio = new Audio(`./audio/yawn.wav`)
+    audio.play()
     statPost('fatigue', index)
 }
 
 function whelmButtonClicked(e) {
     let index = Object.values(whelmButtons).indexOf(e.target)
+    audio = new Audio(`./audio/ahh.wav`)
+    audio.play()
     statPost('whelm', index)
 }
 
@@ -147,6 +159,7 @@ function statPost(stat, id) {
 
     let ikeTotal = document.getElementById('ikeTotal').dataset.total
 
+    
     if (ikeTotal < 10) {
         alert("NOT ENOUGH IKE!")
     } else {
