@@ -30,3 +30,7 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.red {
+    color: red;
+}

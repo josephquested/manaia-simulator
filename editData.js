@@ -24,10 +24,10 @@ const increaseStat = (stat, id, cb) => {
 
 const reset = (cb) => {
     data.students.forEach((student, i) => {
-        student.hunger = backup.students[i].hunger
-        student.thirst = backup.students[i].thirst
-        student.fatigue = backup.students[i].fatigue
-        student.whelm = backup.students[i].whelm
+        let keys = Object.keys(student)
+        keys.forEach(key => {
+            student[key] = backup.students[i][key]
+        })
     })
 
     data.ikeTotal = backup.ikeTotal
@@ -36,20 +36,29 @@ const reset = (cb) => {
     writeData(data, cb)
 }
 
-
 // -- UTIL -- //
 
 const decayStudents = (students) => {
     students.forEach((student) => {
-        student.hunger -= random()
-        student.thirst -= random()
-        student.fatigue -= random()
-        student.whelm -= random()
+        let keys = Object.keys(student)
+        keys.forEach(key => {
+            if (key != 'name')
+            student[key] -= random()
+        })
+        preventNegative(student)
+    })
+}
+
+const preventNegative = (student) => {
+    let keys = Object.keys(student)
+    keys.forEach((key) => {
+        if (student[key] < 0 && key != 'name')
+            student[key] = 0
     })
 }
 
 const random = () => {
-    const difficulty = 3;
+    const difficulty = 2;
     return Math.floor(Math.random() * difficulty) 
 }
 
