@@ -21,7 +21,11 @@ function bindEventListeners () {
     Object.keys(whelmButtons).forEach((key) => { whelmButtons[key].addEventListener('click', whelmButtonClicked) })
 }
 
-bindEventListeners()
+window.addEventListener('DOMContentLoaded', (event) => {
+    bindEventListeners()
+    updateUIStatuses();
+});
+
 
 // -- IKE BUTTON -- //
 
@@ -60,6 +64,57 @@ function whelmButtonClicked(e) {
     statPost('whelm', index)
 }
 
+// -- RENDER -- //
+
+function updateUIStatuses() {
+    let students = document.getElementsByClassName('student');
+    let keys = Object.keys(students)
+    keys.forEach(key => {
+
+        let student = students[key]
+        let name = student.getElementsByClassName('name')[0]
+
+        let elements = [
+            student.getElementsByClassName('hunger')[0],
+            student.getElementsByClassName('thirst')[0],
+            student.getElementsByClassName('fatigue')[0],
+            student.getElementsByClassName('whelm')[0]
+        ]
+
+        elements.forEach(element => {
+            setTextColor(element)
+        })
+
+        setDeadName(name, elements)
+    })
+}
+
+// -- DEATH -- //
+
+function setDeadName(name, elements) {
+    let isDead = true
+    elements.forEach((element) => {
+        if (element.dataset.status > 0)
+            isDead = false
+    })
+
+    if (isDead) {
+        name.innerHTML = name.dataset.name + " (DEAD)"
+        name.classList.add('red')
+    } else {
+        name.innerHTML = name.dataset.name
+        name.classList.remove('red')
+    }
+}
+
+function setTextColor(element) {
+    if (element.dataset.status <= 0)
+        element.classList.add('red')
+    else {
+        element.classList.remove('red')
+    }
+}
+
 // -- RESET -- //
 
 function resetButtonClicked () {
@@ -89,20 +144,27 @@ function ikePost() {
 // increase stat // 
 
 function statPost(stat, id) {
-    let request = new XMLHttpRequest();
-    let address = window.location.href == "http://localhost:3666/" ? "http://localhost:3666/" : 'https://manaia-2020-simulator.herokuapp.com/'
+
+    let ikeTotal = document.getElementById('ikeTotal').dataset.total
+
+    if (ikeTotal < 10) {
+        alert("NOT ENOUGH IKE!")
+    } else {
+        let request = new XMLHttpRequest();
+        let address = window.location.href == "http://localhost:3666/" ? "http://localhost:3666/" : 'https://manaia-2020-simulator.herokuapp.com/'
+        
+        console.log(`INCREASING ${stat} for ${id}`)
     
-    console.log(`INCREASING ${stat} for ${id}`)
-
-    request.onreadystatechange = () =>
-    {
-        if (request.readyState == 4 && request.status == 200)
-            location.reload()
+        request.onreadystatechange = () =>
+        {
+            if (request.readyState == 4 && request.status == 200)
+                location.reload()
+        }
+    
+        request.open("POST", `${address}stat?stat=${stat}&id=${id}`, true);
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        request.send(`INCREASING ${stat} for ${id}`);
     }
-
-    request.open("POST", `${address}stat?stat=${stat}&id=${id}`, true);
-    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    request.send(`INCREASING ${stat} for ${id}`);
 }
 
 

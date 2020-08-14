@@ -36,7 +36,6 @@ const reset = (cb) => {
     writeData(data, cb)
 }
 
-
 // -- UTIL -- //
 
 const decayStudents = (students) => {

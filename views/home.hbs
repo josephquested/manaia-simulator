@@ -3,8 +3,8 @@
 </div>
 
 <div id="ikeContainer">
-    <p id="ikeTotal">I.K.E TOTAL : {{ikeTotal}}</p>
-    <p id="ikeMined">I.K.E MINED : </p>
+    <p id="ikeTotal" data-total="{{ikeTotal}}">I.K.E TOTAL: {{ikeTotal}}</p>
+    <p id="ikeMined">I.K.E MINED: 0</p>
     <button type="button" id="ikeButton">GENERATE I.K.E</button>
     <button type="button" id="bankButton">BANK I.K.E (ADVANCE DAY)</button>
     <button type="button" id="resetButton">RESET</button>
@@ -15,11 +15,11 @@
     {{#each students}}
 
     <div class="student">
-        <h2 class="name">{{name}}</h2>
-        <h3 class="hunger">hunger: {{hunger}} <button type="button" class="hungerButton">FEED (10 IKE)</button>
-        <h3 class="thirst">thirst: {{thirst}} <button type="button" class="thirstButton">WATER (10 IKE)</button>
-        <h3 class="fatigue">fatigue: {{fatigue}} <button type="button" class="fatigueButton">SLEEP (10 IKE)</button>
-        <h3 class="whelm">whelm: {{whelm}} <button type="button" class="whelmButton">STRETCH (10 IKE)</button>
+        <h2 class="name" data-name="{{name}}">{{name}}</h2>
+        <h3 class="hunger" data-status="{{hunger}}" >hunger: {{hunger}} <button type="button" class="hungerButton">FEED (10 IKE)</button>
+        <h3 class="thirst" data-status="{{thirst}}" >thirst: {{thirst}} <button type="button" class="thirstButton">WATER (10 IKE)</button>
+        <h3 class="fatigue" data-status="{{fatigue}}" >fatigue: {{fatigue}} <button type="button" class="fatigueButton">SLEEP (10 IKE)</button>
+        <h3 class="whelm" data-status="{{whelm}}" >whelm: {{whelm}} <button type="button" class="whelmButton">STRETCH (10 IKE)</button>
     </div>
 
     {{/each}}
